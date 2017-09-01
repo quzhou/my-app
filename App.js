@@ -14,8 +14,11 @@ export class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="eventType">haha</div>
-        <div className="eventTable">table rows</div>
+        <div className="headerRow">Events Viewer</div>
+        <div className="bottom">
+            <div className="eventType">haha</div>
+            <div className="eventTable">table rows</div>
+        </div>
       </div>
     );
   }
