@@ -16,8 +16,8 @@ export class App extends React.Component {
       <div className="container">
         <div className="headerRow">Events Viewer</div>
         <div className="bottom">
-            <div className="eventType">haha</div>
-            <div className="eventTable">table rows</div>
+            <div className="nav">haha</div>
+            <div className="workspace">table rows</div>
         </div>
       </div>
     );
