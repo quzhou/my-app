@@ -1,50 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+    margin: 0;
+    padding: 0;
+}
+footer {
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
 }
 
-ol, ul {
-  padding-left: 30px;
-}
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-}
-
-.square:focus {
-  outline: none;
-}
-
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-
-.game {
+.container {
+  position: relative;
+  margin: 10px;
   display: flex;
-  flex-direction: row;
+  height: 100%;
+  border: 1px solid #999;
+}
+.eventType {
+  flex: initial;
+  width: 250px;
+  min-width: 100px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: grey;
+}
+.eventTable {
+  height: 100%;
+  flex: 1;
+  overflow: auto;
 }
 
-.game-info {
-  margin-left: 20px;
-}
