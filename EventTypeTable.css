@@ -1,0 +1,12 @@
+ul.EventTypeTable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.EventTypeTable li {
+  background: transparent;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import EventTypeTable from './EventTypeTable.js';
 
 export class App extends React.Component {
   // constructor(props) {
@@ -16,7 +17,9 @@ export class App extends React.Component {
       <div className="container">
         <div className="headerRow">Events Viewer</div>
         <div className="bottom">
-            <div className="nav">haha</div>
+            <div className="nav">
+              <EventTypeTable />
+            </div>
             <div className="workspace">table rows</div>
         </div>
       </div>

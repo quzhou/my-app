@@ -37,12 +37,10 @@ body {
   width: 250px;
   min-width: 100px;
   overflow-y: auto;
-  background-color: #dddddd;
-  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #eff0f1;
 }
 .workspace {
   flex: 1;
   overflow: auto;
-  background-color: #f1f8ff;
-  padding: 10px;
 }
