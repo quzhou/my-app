@@ -1,24 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import './EventTypeTable.css';
+import './EventTable.css';
 
-class EventTypeTable extends React.Component {
+class EventTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            types: [],
+            data: [],
             loading: true
         };
-        this.liClick = this.liClick.bind(this);
     }
 
     componentDidMount() {
         axios.get('http://www.reddit.com/r/dankmemes.json').then(
             res => {
-                let authors = res.data.data.children.map(obj => obj.data.author);
+                let rows = res.data.data.children.map(obj => {
+                    return {
+                        id: obj.data.id,
+                        author: obj.data.author
+                    };
+                });
                 this.setState({
-                    types: authors,
+                    data: rows,
                     loading: false
                 });
             }
@@ -34,23 +37,21 @@ class EventTypeTable extends React.Component {
         if (this.state.loading) {
             return (<div style={{padding: '10px'}}>Loading...</div>);
         } else {
-            let listItems = this.state.types.map(item => {
+            let rows = this.state.data.map(obj => {
                 return (
-                    <li onClick={this.liClick}>Events Type {item}</li>
+                    <tr>
+                        <td><div className="inRowHead">tiemstamp</div>{obj.id}</td>
+                        <td><div className="inRowHead">_raw</div>{obj.author}</td>
+                    </tr>
                 );
             });
             return (
-                <ul className="EventTypeTable">{listItems}</ul>
+                <table className="EventTable">
+                  {rows}
+                </table>
             );
         }
     }
-
-    liClick(e) {
-        ReactDOM.render(
-            <div>{e.target.innerText}</div>,
-            document.getElementById('headerRowRight')
-        );
-    }
 }
 
-export default EventTypeTable;
+export default EventTable;

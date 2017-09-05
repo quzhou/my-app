@@ -1,0 +1,24 @@
+table.EventTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+}
+
+.EventTable td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 2px 5px 2px 5px;
+}
+
+.EventTable tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.EventTable tr:hover {
+    background-color: #eff0f1;
+}
+
+.EventTable .inRowHead {
+    font-size: 10px;
+    color: #999;
+}
