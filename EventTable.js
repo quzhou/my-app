@@ -12,8 +12,8 @@ class EventTable extends React.Component {
         };
     }
 
-    componentDidMount() {
-        let url = 'http://pay.reddit.com/user/' + this.props.type +
+    loadTable(type) {
+        let url = 'http://pay.reddit.com/user/' + type +
             '/comments.json?t=all&limit=100&sort=new';
         axios.get(url).then(
             res => {
@@ -34,6 +34,16 @@ class EventTable extends React.Component {
                 console.log(error);
             }
         );
+    }
+
+    componentDidMount() {
+        this.loadTable(this.props.type);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.type !== nextProps.type) {
+            this.loadTable(nextProps.type);
+        }
     }
 
     render() {

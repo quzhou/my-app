@@ -1,14 +1,13 @@
 import React from 'react';
 import EventTypeTable from './EventTypeTable.js';
+import Tabs from './Tabs.js';
 
 export class App extends React.Component {
     constructor() {
         super();
-        this.state = {
-            selected: {
-            }
-        };
+        this.state = {};
         this.liClick = this.liClick.bind(this);
+        this.tabClick = this.tabClick.bind(this);
     }
 
     render() {
@@ -20,14 +19,27 @@ export class App extends React.Component {
                         <EventTypeTable onClick={this.liClick}/>
                     </div>
                 </div>
-                <div className="flexRight">
-
-                </div>
+                <Tabs listObj={this.state} onClick={this.tabClick} className="flexRight" 
+                    headerClass="headerRowRight" paneClass="contentPane" footerClass="contentFooter">
+                </Tabs>
             </div>
         );
     }
 
     liClick(item) {
-        this.state.selected[item] = true;
+        // this function is async, merge object
+        this.setState((state) => {
+            let obj = {};
+            Object.assign(obj, state);
+            for (let key in obj) {
+                obj[key] = false;
+            }
+            obj[item] = true;
+            return obj;
+        });
+    }
+
+    tabClick(item) {
+        alert(item);
     }
 }
