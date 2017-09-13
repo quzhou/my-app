@@ -1,0 +1,10 @@
+.Tabs ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Tabs li {
+  border-right: 1px solid #ddd;
+  padding: 10px;
+}

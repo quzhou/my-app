@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import './EventTypeTable.css';
+import './css/EventTypeTable.css';
 
 class EventTypeTable extends React.Component {
     constructor(props) {
@@ -10,7 +9,6 @@ class EventTypeTable extends React.Component {
             types: [],
             loading: true
         };
-        this.liClick = this.liClick.bind(this);
     }
 
     componentDidMount() {
@@ -36,20 +34,13 @@ class EventTypeTable extends React.Component {
         } else {
             let listItems = this.state.types.map(item => {
                 return (
-                    <li onClick={this.liClick}>Events Type {item}</li>
+                    <li onClick={() => this.props.onClick(item)}>Events Type {item}</li>
                 );
             });
             return (
                 <ul className="EventTypeTable">{listItems}</ul>
             );
         }
-    }
-
-    liClick(e) {
-        ReactDOM.render(
-            <div>{e.target.innerText}</div>,
-            document.getElementById('headerRowRight')
-        );
     }
 }
 

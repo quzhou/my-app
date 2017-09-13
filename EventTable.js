@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import './EventTable.css';
+import './css/EventTable.css';
 
 class EventTable extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             data: [],
             loading: true
@@ -12,7 +13,9 @@ class EventTable extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://www.reddit.com/r/dankmemes.json').then(
+        let url = 'http://pay.reddit.com/user/' + this.props.type +
+            '/comments.json?t=all&limit=100&sort=new';
+        axios.get(url).then(
             res => {
                 let rows = res.data.data.children.map(obj => {
                     return {
