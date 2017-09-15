@@ -2,14 +2,24 @@ ul.Tabs {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  height: 100%;
+  border-left: 1px solid #ddd;
+  display: flex;
 }
 
 .Tabs li {
-  float: left;
-  display: inline-block;
-  background-color: #fff;
+  height: 100%;
+  max-width: 200px;
+  background-color: #999;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  font-size: 14px;
-  padding: 8px;
+  font-size: 16px;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.Tabs li.active {
+  background-color: #fff;
+  border-bottom: none;
 }

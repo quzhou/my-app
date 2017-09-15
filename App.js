@@ -40,6 +40,14 @@ export class App extends React.Component {
     }
 
     tabClick(item) {
-        alert(item);
+        this.setState((state) => {
+            let obj = {};
+            Object.assign(obj, state);
+            for (let key in obj) {
+                obj[key] = false;
+            }
+            obj[item] = true;
+            return obj;
+        });
     }
 }

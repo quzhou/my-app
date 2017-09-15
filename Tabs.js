@@ -6,21 +6,28 @@ class Tabs extends React.Component {
     render() {
         let listObj = this.props.listObj;
         let list = Object.keys(listObj);
-
-        let listItems = list.map(item => {
-            return (
-                <li onClick={() => this.props.onClick(item)}>{item}</li>
-            );
-        });
-
-        var bottom = (<div className={this.props.paneClass}></div>);
         let selected = null;
+
         for (let key in listObj) {
             if (listObj[key]) {
                 selected = key;
                 break;
             }
         }
+
+        let listItems = list.map(item => {
+            if (listObj[item]) {
+                return (
+                    <li onClick={() => this.props.onClick(item)} className="active">{item}</li>
+                );
+            } else {
+                return (
+                    <li onClick={() => this.props.onClick(item)}>{item}</li>
+                );
+            }
+        });
+
+        var bottom = (<div className={this.props.paneClass}></div>);
         if (selected) {
             bottom = (
                 <div className={this.props.paneClass}>
