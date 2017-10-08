@@ -9,13 +9,10 @@ class CardDealer extends React.Component {
             cards: []
         };
 
-        for (let i = 0; i < 52; i++) {
-            let num = Math.floor((Math.random() * 100) + 1);
-            num = (num % 52) + 1;
-            this.state.candidates.push(num);
-        }
-
         this.liClick = this.liClick.bind(this);
+        this.shuffle = this.shuffle.bind(this);
+
+        this.shuffle();
     }
 
     render() {
@@ -37,23 +34,30 @@ class CardDealer extends React.Component {
 
     liClick(item) {
         this.setState((state) => {
-            let arr = [];
-            let cnt = 0;
-            for (let i = 0; i < state.candidates.length; i++) {
-                if (cnt >= 5) {
-                    break;
-                }
-
-                let num = state.candidates.shift();
-                arr.push(num);
-                cnt++;
-            }
-
+            let arr = state.candidates.splice(0, 5);
             let obj = {};
             Object.assign(obj, state);
             obj.cards = arr;
             return obj;
         });
+    }
+
+    shuffle() {
+        this.state.candidates = [];
+        for (let i = 1; i <= 52; i++) {
+            this.state.candidates.push(i);
+        }
+
+        let idx = 51;
+        while (idx > 0) {
+            let rn = Math.floor(Math.random() * idx);
+
+            let tmp = this.state.candidates[rn];
+            this.state.candidates[rn] = this.state.candidates[idx];
+            this.state.candidates[idx] = tmp;
+
+            idx--;
+        }
     }
 }
 
