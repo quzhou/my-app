@@ -5,6 +5,10 @@ import Tabs from './Tabs.js';
 export class App extends React.Component {
     constructor() {
         super();
+
+        // { 'typeName1': true,
+        //   'typeName2': false
+        // }
         this.state = {};
         this.liClick = this.liClick.bind(this);
         this.tabClick = this.tabClick.bind(this);
@@ -19,7 +23,7 @@ export class App extends React.Component {
                         <EventTypeTable onClick={this.liClick}/>
                     </div>
                 </div>
-                <Tabs listObj={this.state} onClick={this.tabClick} className="flexRight" 
+                <Tabs listObj={this.state} onClick={this.tabClick} className="flexRight"
                     headerClass="headerRowRight" paneClass="contentPane" footerClass="contentFooter">
                 </Tabs>
             </div>

@@ -39,6 +39,7 @@ body {
   padding: 10px;
   font-size: 20px;
 }
+
 .bottom {
   /* same as header row's height */
   margin-top: 50px;
@@ -66,3 +67,42 @@ body {
   width: 100%;
   background-color: #fff;
 }
+
+/* for card dealer */
+.tContainer {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+}
+.tTop {
+  flex: initial;
+  margin: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #0099ff;
+  background-color: #0099ff;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tBot {
+  flex: 1;
+  margin-left: 10px;
+}
+.card {
+  height: 100px;
+  width: 100px;
+  background-color: #eff0f1;
+  border: 1px solid #000;
+  float: left;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+/* end of card dealer*/
